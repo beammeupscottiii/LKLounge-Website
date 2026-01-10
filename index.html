@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LK Lounge | NYC Lounge and Event Venue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar">
+      <div class="nav-spacer"></div>
+
+      <div class="logo-block">
+        <span class="lk">LK</span>
+        <span class="lounge">Lounge</span>
+      </div>
+
+      <div class="nav-actions">
+        <button id="menu-toggle">MENU</button>
+      </div>
+    </nav>
+
+
+    <!-- Nav Menu -->
+    <div id="nav-overlay" class="div.nav-overlay">
+      <button id="menu-close" class="close-trigger">CLOSE</button>
+      
+      <div class="nav-content-wrapper">
+        <div class="nav-branding">
+          <h1 class="logo-text">
+            <span class="lk">LK</span> 
+            <span class="lounge">LOUNGE</span>
+          </h1>
+          <p class="tagline">Nightlife & Event Venue</p>
+        </div>
+
+        <nav class="full-page-links">
+          <ul class="nav-list">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#reservation-section" class="nav-link">Reservations</a></li>
+            <li><a href="#info" class="nav-link">Info</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    
+    <!-- Hero Header -->
+    <header class="hero-section">
+      <div class="content-wrapper">
+        <h1 class="hero-title">
+          Welcome to a <br>Premium Night Life <br>Experience
+        </h1>
+      </div>
+
+      <div class="image-group">
+        <img src="images/header1.jpg" alt="Lounge Interior" class="hero-photo">
+        <img src="images/header2.jpg" alt="Cocktail Detail" class="hero-photo">
+        <img src="images/header3.jpg" alt="Ambient Lighting" class="hero-photo">
+      </div>
+    </header>
+
+
+    <!-- Introduction -->
+    <section class="intro-section" id="about">
+      <h3 class="about-label">About Us</h3>
+      <h2 class="intro-heading">
+        LK Lounge <br> 
+        Nightlife and Event Venue
+      </h2>
+      <p class="intro-text">
+        Experience the pinnacle of nightlife at LK Lounge. As the city’s premier destination for 
+        dancing, socializing, and hosting unforgettable private events, we blend curated 
+        ambient lighting with a high-energy atmosphere. Whether you're here for an intimate 
+        cocktail or a grand celebration, LK Lounge offers a sophisticated backdrop for every celebration.
+      </p>
+    </section>
+
+
+    <!-- Details -->
+    <section class="details">
+      <div class="detail-item">
+        <h2 class="detail-header">Live Band Performances & Veteran DJs</h2>
+        <img src="images/about1.jpg" 
+             alt="Live Band" class="detail-photo">
+      </div>
+
+      <div class="detail-item">
+        <h2 class="detail-header">Craft Cocktails and Delectable Appetizers</h2>
+        <img src="images/about2.jpg" 
+             alt="Cocktails" class="detail-photo">
+      </div>
+
+      <div class="detail-item">
+        <h2 class="detail-header">Reserve Event Venue for up to 150 people</h2>
+        <img src="images/about3.jpg" 
+             alt="Event Venue" class="detail-photo">
+      </div>
+    </section>
+
+
+
+    <!-- Galleries -->
+    <section class="gallery-section" id="gallery">
+      <h2 class="gallery-header">Gallery</h2>
+
+      <div class="gallery-controls">
+        <button class="toggle-btn active" data-target="photos">PHOTOS</button>
+        <button class="toggle-btn" data-target="videos">VIDEOS</button>
+      </div>
+
+      <div class="gallery-container">
+        <div id="photos" class="slider">
+          <img src="images/1.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/2.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/3.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/4.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/5.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/6.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/7.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/8.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/9.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/10.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/11.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/12.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/13.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/14.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/15.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/16.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/17.jpg" alt="Lounge 1" class="gallery-item">
+          <img src="images/18.jpg" alt="Lounge 1" class="gallery-item">
+        </div>
+
+        <div id="videos" class="slider hidden">
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/1.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/2.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/3.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/4.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/5.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/6.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/7.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/7.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/8.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/9.mp4" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" poster="">
+            <source src="./video/10.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-indicator"></div>
+      </div>
+    </section>
+
+
+
+    <!-- Calendar -->
+    <section class="reservations" id="reservation-section">
+
+        <h2 class="gallery-header">Reservations</h2>
+
+      <div class="calendar-container">
+        
+        <div class="calendar-header">
+          <button id="prevMonth" class="nav-arrow hidden">&lt;</button>
+          <h2 id="monthDisplay" class="calendar-title">December 2025</h2>
+          <button id="nextMonth" class="nav-arrow">&gt;</button>
+        </div>
+
+        <div class="calendar-day-labels">
+          <span class="day-name">SUN</span>
+          <span class="day-name">MON</span>
+          <span class="day-name">TUE</span>
+          <span class="day-name">WED</span>
+          <span class="day-name">THU</span>
+          <span class="day-name">FRI</span>
+          <span class="day-name">SAT</span>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid">
+        </div>
+        
+      </div>
+    </section>
+
+
+
+    <!-- Reservations -->
+    <section id="reservation-container" class="reservation-container-minimal hidden">
+      <form id="reservation-form" class="reservation-form-minimal">
+        <h2 class="form-title visually-hidden">Complete Your Reservation</h2>
+        <p id="selected-date-display" class="selected-date visually-hidden"></p>
+        <input type="hidden" id="reservation_date" name="reservation_date">
+
+        <div class="form-row">
+          <input type="text" id="user_name" name="user_name" placeholder="Name, First & Last" required class="minimal-field">
+        </div>
+
+        <div class="form-row">
+          <input type="email" id="user_email" name="user_email" placeholder="Email" required class="minimal-field">
+        </div>
+
+        <div class="form-row">
+          <input type="tel" id="user_phone" name="user_phone" placeholder="Phone" required class="minimal-field">
+        </div>
+
+        <div class="form-row split-row">
+          <div class="field-wrapper">
+            <input type="time" id="reservation_time" name="reservation_time" required class="minimal-field time-input">
+            <label for="reservation_time" class="floating-label">Start</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="time" id="reservation_end_time" name="reservation_end_time" required class="minimal-field time-input">
+            <label for="reservation_end_time" class="floating-label">End</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <input type="number" id="party_size" name="party_size" placeholder="Size of Party" min="1" max="150" required class="minimal-field">
+        </div>
+
+        <button type="submit" id="submit-btn" class="minimal-submit">Request Reservation</button>
+        
+        <div id="form-message" class="form-message hidden"></div>
+      </form>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer id="info">
+        
+        <div id="left">
+            <div id="logoWrapper">
+                <h1>LK<br>
+                    <span>Lounge</span>
+                </h1>
+                <h3>Nightlife & Event Venue</h3>
+            </div>
+
+
+            <div id="info">   
+                <div>
+                    <h2>CALL</h2>
+                    <p>929 776 2008</p>
+                </div>
+
+                <div>
+                    <h2>EMAIL</h2>
+                    <p>contact@LKLounge.com</p>
+                </div>
+
+                <div>
+                    <h2>HOURS</h2>
+                    <p>
+                       MON | Closed<br>
+                       TUE | Closed<br>
+                       WED | Closed<br>
+                       THU | 4pm - 12pm<br>
+                       FRI | 4pm - 2am<br>
+                       SAT | 4pm - 2am<br>
+                       SUN | 4pm - 12pm
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="right">
+            <div id="map">
+                <h2>FIND US</h2>
+                <div id="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.093359106192!2d-73.92750889999999!3d40.62782304270646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c243bffe0eca2b%3A0xa63921146ecd402!2sLK%20Lounge!5e0!3m2!1sen!2sus!4v1768067420555!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        
+
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init({
+              publicKey: "ndYyHqewf0kLoDuxh",
+            });
+        })();
+
+        const PUBLIC_KEY = "ndYyHqewf0kLoDuxh"; 
+        const SERVICE_ID = "lagolagoKacheKache"; 
+        const BUSINESS_TEMPLATE_ID = "LoungeResv_business"; 
+        const CONFIRMATION_TEMPLATE_ID = "LoungeResv_customer";
+
+        const reservationForm = document.getElementById('reservation-form');
+        const submitButton = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+
+        function showMessage(type, message) {
+            formMessage.classList.remove('hidden', 'success', 'error');
+            formMessage.classList.add(type);
+            formMessage.textContent = message;
+        }
+
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', handleReservationSubmit);
+        }
+
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            formMessage.classList.add('hidden');
+            submitButton.textContent = "Sending Request...";
+            submitButton.disabled = true;
+
+            // --- 1. Format START TIME (12hr) ---
+            const rawStartTime = document.getElementById('reservation_time').value;
+            const startParts = rawStartTime.split(':');
+            const startH24 = parseInt(startParts[0], 10);
+            const startMin = startParts[1];
+            const startH12 = startH24 % 12 || 12; // Formats 0 as 12
+            const startAmPm = startH24 >= 12 ? 'PM' : 'AM';
+            const finalTime12hr = `${startH12}:${startMin} ${startAmPm}`;
+
+            // --- 2. Format END TIME (12hr) ---
+            const rawEndTime = document.getElementById('reservation_end_time').value;
+            const endParts = rawEndTime.split(':');
+            const endH24 = parseInt(endParts[0], 10);
+            const endMin = endParts[1];
+            const endH12 = endH24 % 12 || 12; 
+            const endAmPm = endH24 >= 12 ? 'PM' : 'AM';
+            const finalEndTime12hr = `${endH12}:${endMin} ${endAmPm}`;
+
+            const templateParams = {
+                user_name: document.getElementById('user_name').value,
+                user_email: document.getElementById('user_email').value,
+                user_phone: document.getElementById('user_phone').value,
+                reservation_date: document.getElementById('reservation_date').value,
+                reservation_time: finalTime12hr,         // Start Time
+                reservation_end_time: finalEndTime12hr,  // End Time
+                // reservation_duration: document.getElementById('reservation_duration').value, // Dropdown
+                party_size: document.getElementById('party_size').value,
+            };
+
+            const sendBusiness = emailjs.send(SERVICE_ID, BUSINESS_TEMPLATE_ID, templateParams);
+            const sendConfirmation = emailjs.send(SERVICE_ID, CONFIRMATION_TEMPLATE_ID, templateParams);
+
+            Promise.all([sendBusiness, sendConfirmation])
+                .then((responses) => {
+                    showMessage('success', "Success! Your reservation request has been sent Please allow time for our team to reach out!.");
+                    reservationForm.reset();
+                    // Optional: Hide form after success
+                    setTimeout(() => { document.getElementById('reservation-container').classList.remove('visible'); }, 3000);
+                })
+                .catch((error) => {
+                    console.error('EmailJS Error:', error);
+                    showMessage('error', "An error occurred. Please try again or call us.");
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Request Reservation";
+                });
+        }
+    </script>
+</body>
+</html>

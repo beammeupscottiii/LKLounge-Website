@@ -1,0 +1,952 @@
+@font-face {
+  font-family: 'Proxima Nova Thin';
+  src: url('./fonts/Proxima Nova Thin.otf') format('otf');
+  font-weight: 200;
+/*  font-style: ;*/
+  font-display: swap; /* Ensures text is visible while loading */
+}
+
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url('./fonts/Proxima Nova Regular.ttf') format('ttf');
+  font-weight: Regular;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while loading */
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('./fonts/Proxima Nova Light.ttf') format('ttf');
+  font-weight: Regular;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while loading */
+}
+
+/*Font from https://www.onlinewebfonts.com/icon*/
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('./fonts/Proxima Nova Semibold.ttf') format('ttf');
+  font-weight: Regular;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while loading */
+}
+
+
+:root {
+    --laser-blue: #00E5FF;
+    --dark-grey: #0e1317;
+    --nav-bg: rgba(18, 18, 18, 0.95);
+    --text-light: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--dark-grey);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* --- Navigation --- */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Comfortable height for a fixed nav */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+  background: transparent; /* Or a slight dark gradient if text is hard to read */
+  box-sizing: border-box;
+  background-color: #0e1317;
+}
+
+div.nav-spacer, 
+div.nav-actions {
+  flex: 1; /* These grow equally to keep logo centered */
+}
+
+div.nav-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Logo Styling */
+div.logo-block {
+  display: flex;
+  flex-direction: column; /* Stacks LK over Lounge */
+  align-items: flex-start; /* Left aligns text within the center block */
+  text-transform: uppercase;
+  line-height: 0.9; /* Pulls the stacked words closer together */
+  color: #ffffff;
+}
+
+div.logo-block span.lk {
+  font-family: 'Proxima Nova Thin', sans-serif;
+  font-size: 20px; /* Discernment: slightly larger than 18px for impact */
+  letter-spacing: 2px;
+}
+
+div.logo-block span.lounge {
+  font-family: 'Proxima Nova Bold', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+/* Menu Button Styling */
+button#menu-toggle {
+  font-family: 'Proxima Nova Light', sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  letter-spacing: 0.15em; /* Adds that high-end "spaced out" look */
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+/* Desktop Adjustment */
+@media (min-width: 1024px) {
+  nav.navbar {
+    padding: 0 48px;
+    height: 100px;
+  }
+}
+
+
+/* Animation for Hamburger */
+.toggle .line1 { transform: rotate(-45deg) translate(-6px, 7px); }
+.toggle .line2 { opacity: 0; }
+.toggle .line3 { transform: rotate(45deg) translate(-6px, -7px); }
+
+
+
+div#nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark-grey); /* Dark Lounge Theme */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Smooth Slide/Fade Effect */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+div#nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Close Button */
+button.close-trigger {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 3. Content Layout (Mobile: Column, Left Aligned) */
+div.nav-content-wrapper {
+  width: 80%;
+  max-width: 1000px;
+  text-align: left;
+}
+
+h1.logo-text {
+  color: white;
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+}
+
+div.nav-content-wrapper h1 span.lk {
+  font-family: 'Proxima Nova Thin', sans-serif;
+  letter-spacing: 2px;
+}
+
+div.nav-content-wrapper h1 span.lounge {
+  font-family: 'Proxima Nova Bold', sans-serif;
+  letter-spacing: 2px;
+}
+
+p.tagline {
+  color: #888;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 10px 0 60px 0;
+}
+
+ul.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Stacked on mobile */
+  gap: 20px;
+}
+
+a.nav-link {
+  color: white;
+  text-decoration: none;
+  font-family: 'Proxima Nova Thin', sans-serif;
+  font-size: 1.8rem;
+  transition: opacity 0.3s;
+}
+
+a.nav-link:hover {
+  opacity: 0.5;
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  ul.nav-list {
+    flex-direction: row; /* Horizontal on desktop */
+    gap: 60px;
+  }
+  
+  h1.logo-text { font-size: 4rem; }
+  
+  a.nav-link { font-size: 2.5rem; }
+}
+
+
+
+
+/* header */
+/* Mobile-First Design */
+header.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100vh;
+  width: 100%;
+/*  background-color: #0a0a0a;*/
+  color: #ffffff;
+  overflow: hidden;
+}
+
+div.content-wrapper {
+  padding: 0 24px;
+}
+
+h1.hero-title {
+  font-family: 'Proxima Nova Thin';
+  font-weight: 200;
+  font-size: 2rem;
+  line-height: 1.4;
+  width: 90%;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+div.image-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+img.hero-photo {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  display: block;
+  /* Optional: adds a slight fade to the photos to blend with the dark header */
+  filter: brightness(0.8); 
+}
+
+/* Desktop Version */
+@media (min-width: 1024px) {
+
+  header.hero-section {
+    height: fit-content;
+    margin-top: 300px;
+  }
+
+  h1.header {
+    margin-bottom: 48px;
+    padding-left: 48px;
+    font-size: 3.5rem;
+  }
+
+  div.image-group {
+    flex-direction: row;
+  }
+
+  img.hero-photo {
+    flex: 1;
+    aspect-ratio: auto; /* Row height is now uniform */
+/*    height: 400px;*/
+    width: 33%;
+    filter: brightness(1); /* Full brightness on desktop */
+    transition: flex 0.5s ease;
+  }
+
+  /* Interaction: Hovering over one photo expands it slightly */
+  img.hero-photo:hover {
+    flex: 1.2;
+  }
+}
+
+
+
+
+
+/*
+    Introduction Section
+*/
+section.intro-section {
+  padding: 80px 24px; /* Breathing room on mobile */
+  text-align: center;
+/*  background-color: #ffffff; */
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3.about-label {
+  font-family: 'Proxima Nova Light', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+  color: #777777; /* Subtle gray for the label */
+}
+
+h2.intro-heading {
+  font-family: 'Proxima Nova Regular', sans-serif;
+  color: white;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  text-transform: capitalize; /* Optional: adds to the formal feel */
+}
+
+p.intro-text {
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #777777;
+  width: 80%; /* Default for mobile */
+}
+
+/* Desktop Version */
+@media (min-width: 1024px) {
+  section.intro-section {
+    padding: 120px 48px;
+  }
+
+  h2.intro-heading {
+    font-size: 3.5rem; /* Larger impact on desktop */
+  }
+
+  p.intro-text {
+    max-width: 650px; /* Prevents text lines from getting too long/unreadable */
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+/*
+    Details Section
+*/
+/* Section Container */
+section.details {
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Space between the three blocks on mobile */
+  padding: 80px 24px;
+/*  background-color: #ffffff;*/
+}
+
+div.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Keeps everything left-aligned */
+  width: 100%;
+}
+
+h2.detail-header {
+  font-family: 'Proxima Nova Light', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  width: 70%; /* Restricted width per your request */
+  margin-bottom: 20px;
+  text-align: left;
+  color: white;
+}
+
+img.detail-photo {
+  width: 90%; /* Restricted width per your request */
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* Desktop Version */
+@media (min-width: 1024px) {
+  section.details {
+    flex-direction: row; /* Side-by-side layout */
+    gap: 40px; /* Space between the containers */
+    padding: 80px 28px;
+    margin: 120px auto;
+  }
+
+  div.detail-item {
+    flex: 1; /* Distributes the three columns equally */
+  }
+
+  h2.detail-header {
+    width: 70%; /* Header expands slightly on desktop */
+    font-size: 1.75rem;
+    height: 4.5rem; /* Optional: keeps headers aligned if text lengths vary */
+  }
+
+  img.detail-photo {
+    margin-top: 42px;
+    width: 100%; /* Image takes full width of its column on desktop */
+  }
+}
+
+
+
+
+
+/*
+    Galleries
+*/
+section.gallery-section {
+  padding: 80px 20px; /* Full width for the slider */
+  color: #fff;
+  text-align: center;
+}
+
+h2.gallery-header {
+  font-family: 'Proxima Nova Regular', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+div.gallery-controls {
+  margin-bottom: 40px;
+}
+
+button.toggle-btn {
+  font-family: 'Proxima Nova Regular', sans-serif;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+button.toggle-btn.active {
+  color: #fff;
+  border-bottom: 2px solid #fff; /* The underline for active state */
+}
+
+/* The Slider */
+
+div.gallery-container {
+
+}
+
+div.slider {
+/*  width: 100%;*/
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 0 24px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+div.slider::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+div.slider.hidden {
+  display: none;
+  width: 100%;
+}
+
+img.gallery-item {
+  flex: 0 0 98%;  /*Shows 80% of one image, hinting at the next */
+/*  width: 100%;*/
+/*  height: 500px;*/
+  aspect-ratio: 4 / 3;
+  width: 340px;
+  object-fit: cover;
+  scroll-snap-align: center;
+  border-radius: 4px;
+  max-height: 70vh;
+}
+
+div#videos video {
+    width: 340px;
+}
+
+/* Progress Bar */
+div.progress-container {
+  width: 100px;
+  height: 2px;
+  background-color: grey;
+  margin: 40px auto 0;
+  position: relative;
+}
+
+div.progress-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;  /*Adjusted via JS */
+  background-color: #fff;
+  transition: width 0.1s linear;
+}
+
+/*Desktop Adjustment */
+@media (min-width: 1024px) {
+  img.gallery-item, video.gallery-item {
+    flex: 0 0 45%; /* Show two-ish images on desktop */
+  }
+}
+
+
+
+/*
+    Reservations
+*/
+section.reservations {
+  padding: 80px 24px 24px;
+/*  display: flex;*/
+/*  justify-content: center;*/
+}
+
+section.reservations h2.gallery-header {
+    margin-bottom: -20px;
+    text-align: center;
+}
+
+div.calendar-container {
+  width: 100%;
+  max-width: 500px; /* Keeps the calendar from getting too stretched */
+  margin: 80px auto 24px;
+}
+
+/* Header Styling */
+div.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+h2.calendar-title {
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 1.8rem;
+  color: #666; /* Matching the soft grey in your image */
+  letter-spacing: 2px;
+}
+
+button.nav-arrow {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #666;
+  cursor: pointer;
+}
+
+button.nav-arrow.hidden {
+    display: none;
+}
+
+/* Day Labels (SUN - SAT) */
+div.calendar-day-labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+span.day-name {
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 0.75rem;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/* The Grid */
+div.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px; /* Space between the squares */
+  margin-right: 4px;
+}
+
+div.date-cell {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  aspect-ratio: 1 / 1; /* Ensures they stay perfectly square */
+  background-color: #212121; 
+  border-radius: 12px; /* The rounded corners */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px;
+}
+
+div.date-cell.active {
+    background-color: #e0e0e0;
+    color: #212121;
+}
+
+div.date-cell.past {
+  background-color: #141414;
+  cursor: none; 
+}
+
+div.date-cell:hover {
+  background-color: #e0e0e0;
+  color: #212121 /* Subtle hover effect */
+}
+
+/* Desktop Adjustment */
+@media (min-width: 1024px) {
+  div.calendar-container {
+    max-width: 600px;
+  }
+  
+  div.calendar-grid {
+    gap: 16px;
+  }
+}
+
+
+
+/*
+    Reservation Form
+*/
+/* Add this to your CSS file */
+
+/* Utility to hide elements visually but keep them accessible */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Container styles - removed background and padding for a clean look */
+section.reservation-container-minimal {
+  display: none;
+  max-width: 500px;
+  margin: -20px auto 40px;
+  padding: 40px 20px;
+/*  background: #1a1a1a;*/
+  border-radius: 12px;
+  
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  visibility: hidden;
+}
+
+section.reservation-container-minimal.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Updated Input Field Styles */
+input.minimal-field {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #818181; /* White lines */
+  border-radius: 0;
+  background: transparent;
+  
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 1rem;
+  color: #ffffff; /* White input text */
+  outline: none;
+  transition: border-bottom-color 0.3s; 
+  letter-spacing: 1px;
+
+  margin: 8px 0;
+}
+
+/* Placeholder styling - Light Grey */
+input.minimal-field::placeholder {
+  color: #777; /* Light grey placeholder */
+  opacity: 1; /* Ensures color displays correctly in all browsers */
+}
+
+/* Focus state - bright white underline */
+input.minimal-field:focus {
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Targets the "little clock" in Chrome, Edge, and Safari */
+input.minimal-field::-webkit-calendar-picker-indicator {
+    /* invert(1) turns the default black icon into white */
+    filter: invert(1);
+    cursor: pointer;
+    /* Optional: adjust opacity to match your light grey placeholder (#cccccc) */
+    opacity: 0.8; 
+}
+
+/* Floating Label for the Time Input */
+.label.floating-label {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  color: #cccccc; /* Matches placeholder light grey */
+  font-family: 'Proxima Nova Regular', sans-serif;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+input.time-input:focus + .label.floating-label,
+input.time-input:valid + .label.floating-label {
+  top: -15px;
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+/* Submit Button - Styled to match the text-link look in white */
+button.minimal-submit {
+  display: block;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  margin: 20px auto;
+  
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff; /* White button text */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+button.minimal-submit:hover {
+  opacity: 0.7;
+}
+
+/* Form Layout */
+.form.reservation-form-minimal {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between fields */
+}
+
+.div.form-row {
+  width: 100%;
+}
+
+/* Split row for side-by-side fields */
+div.form-row.split-row {
+  display: flex;
+  gap: 30px;
+}
+
+div.field-wrapper {
+  flex: 1;
+  position: relative; /* For positioning the floating label */
+}
+
+/* Special handling for Time Input Label */
+.label.floating-label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #999;
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Move label up when input has value or is focused */
+input.time-input:focus + .label.floating-label,
+input.time-input:valid + .label.floating-label {
+  top: -12px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Minimal Submit Button Styles */
+button.minimal-submit {
+  background: none;
+  border: none;
+  padding: 15px 0;
+  margin-top: 20px;
+  
+  font-family: 'Proxima Nova Regular', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+button.minimal-submit:hover {
+  color: #000;
+}
+
+/* Form Message Styles */
+div.form-message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+div.form-message.success { color: #2ecc71; }
+div.form-message.error { color: #e74c3c; }
+
+
+
+
+
+
+
+footer {
+    margin: 120px auto 36px;
+    padding: 20px 16px 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+footer div#logoWrapper {
+/*    margin-left: 16px;*/
+}
+
+footer h1 {
+    font-family: "Proxima Nova Thin", sans-serif;
+    font-size: 2em;
+    letter-spacing: px;
+    line-height: 0.9;
+}
+
+footer h1 span {
+    font-family: "Proxima Nova Bold", sans-serif;
+}
+
+footer h3 {
+    font-family: "Proxima Nova Thin", sans-serif;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+
+div#info {
+    margin: 48px 0;
+}
+
+div#info div {
+    margin: 24px 0;
+}
+
+div#info div h2 {
+    font-family: "Proxima Nova Thin", sans-serif;
+    letter-spacing: 4px;
+    margin-bottom: -2px;
+}
+
+div#info div p {
+    letter-spacing: 2px;
+}
+
+
+
+div#map {}
+
+div#map h2 {
+    font-family: "Proxima Nova Regular", sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+div#map div#map-container {
+    margin: 16px auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+div#map div#map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+@media (min-width: 1024px) {
+    footer {
+        max-width: 980px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 36px 0;
+    }
+
+    footer div#left,
+    footer div#right {
+        width: 50%;
+    }
+
+    footer div#right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
