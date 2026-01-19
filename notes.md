@@ -2,6 +2,14 @@
 #### Lounge Website
 
 ----------------------------------------------------------------------------------------
+### 01. 17. 2025
+@2030
+Gotta change the header text
+Rob wants to showcase the event venue aspect of the lounge more, gonna go with a
+header text + image + splash text combo, probably add a fourth. not sure what to
+make the fourth about tho.
+
+
 ### 01. 10. 2025
 @1240 Styling fixed for navmenu. Everything is looking good and operational
 
