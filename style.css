@@ -924,6 +924,16 @@ footer h3 {
     letter-spacing: 2px;
 }
 
+footer a svg {
+  margin-top: 16px;
+  width: 48px;
+  height: 48px;
+}
+
+footer a svg g {
+  fill: white;
+}
+
 
 div#info {
     margin: 48px 0;
